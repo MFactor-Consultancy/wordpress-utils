@@ -1,0 +1,3 @@
+curl -O https://raw.githubusercontent.com/MFactor-Consultancy/wordpress-utils/main/deploy-wordpress-subfolder.ssh
+chmod +x ./deploy-wordpress-subfolder.ssh
+./deploy-wordpress-subfolder.ssh events
