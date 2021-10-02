@@ -1,0 +1,15 @@
+#!/bin/sh
+WEBSITE_ROOT="/opt/bitnami/wordpress/$1"
+echo "Website Root: ${WEBSITE_ROOT}"
+
+REPLACE="$_SERVER['HTTP_HOST'] . '/${1}'"
+ESCAPED_REPLACE=$(printf '%s\n' "$REPLACE" | sed -e 's/[\/&]/\\&/g')
+
+KEYWORD="$_SERVER['HTTP_HOST'] . '/'"
+ESCAPED_KEYWORD=$(printf '%s\n' "$KEYWORD" | sed -e 's/[]\/$*.^[]/\\&/g')
+
+sed -i "s/$ESCAPED_KEYWORD/$ESCAPED_REPLACE/g" /bitnami/wordpress/wp-config.php
+
+mkdir ${WEBSITE_ROOT}
+cp -r /opt/bitnami/wordpress/* ${WEBSITE_ROOT}
+chown -R bitnami:daemon ${WEBSITE_ROOT}
