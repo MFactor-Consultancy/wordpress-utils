@@ -10,10 +10,10 @@ ESCAPED_KEYWORD=$(printf '%s\n' "$KEYWORD" | sed -e 's/[]\/$*.^[]/\\&/g')
 
 sed -i "s/$ESCAPED_KEYWORD/$ESCAPED_REPLACE/g" /bitnami/wordpress/wp-config.php
 
-echo "define('ADMIN_COOKIE_PATH', '/');" >> /bitnami/wordpress/wp-config.php
-echo "define('COOKIE_DOMAIN', '');" >> /bitnami/wordpress/wp-config.php
-echo "define('COOKIEPATH', '');" >> /bitnami/wordpress/wp-config.php
-echo "define('SITECOOKIEPATH', '');" >> /bitnami/wordpress/wp-config.php
+# echo "define('ADMIN_COOKIE_PATH', '/');" >> /bitnami/wordpress/wp-config.php
+# echo "define('COOKIE_DOMAIN', '');" >> /bitnami/wordpress/wp-config.php
+# echo "define('COOKIEPATH', '');" >> /bitnami/wordpress/wp-config.php
+# echo "define('SITECOOKIEPATH', '');" >> /bitnami/wordpress/wp-config.php
 
 mkdir -p ${WEBSITE_ROOT}
 cp -r /opt/bitnami/wordpress/* ${WEBSITE_ROOT}
