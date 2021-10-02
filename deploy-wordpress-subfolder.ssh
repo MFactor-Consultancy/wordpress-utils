@@ -13,3 +13,6 @@ sed -i "s/$ESCAPED_KEYWORD/$ESCAPED_REPLACE/g" /bitnami/wordpress/wp-config.php
 mkdir ${WEBSITE_ROOT}
 cp -r /opt/bitnami/wordpress/* ${WEBSITE_ROOT}
 chown -R bitnami:daemon ${WEBSITE_ROOT}
+chown -R root:root ${WEBSITE_ROOT}/wp-content
+chown -R root:root ${WEBSITE_ROOT}/wp-config.php
+chmod -R g+rw ${WEBSITE_ROOT}
